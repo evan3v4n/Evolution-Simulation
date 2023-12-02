@@ -4,7 +4,9 @@ pub struct Network {
 }
 
 struct Layer {
-    neurons: Vec<Neuron>,
+    fn propagate(&self, inputs: Vec<f32>) -> Vec<f32> {
+        todo!()
+    }
 }
 
 struct Neuron {
@@ -13,8 +15,10 @@ struct Neuron {
 }
 
 impl Network {
-    pub fn propagate(&self, inputs: Vec<f32>) -> Vec<f32> {
-        todo!()
+    fn propagate(&self, inputs: Vec<f32>) -> Vec<f32> {
+        self.layers
+            .iter()
+            .fold(inputs, |inputs, layer| layer.propagate(inputs))
     }
 }
 
