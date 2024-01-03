@@ -3,9 +3,22 @@ pub struct Network {
     layers: Vec<Layer>,
 }
 
+impl Network {
+    pub fn new(layers: Vec<Layer>) -> Self {
+        Self { layers }
+    }
+}
+
 struct Layer {
+    neurons: Vec<Layer>,
+}
+
+impl Layer {
     fn propagate(&self, inputs: Vec<f32>) -> Vec<f32> {
-        todo!()
+        self.neurons
+            .iter()
+            .map(|neuron| neuron.propagate(inputs))
+            .collect()
     }
 }
 
@@ -14,19 +27,23 @@ struct Neuron {
     weights: Vec<f32>,
 }
 
-impl Network {
-    fn propagate(&self, inputs: Vec<f32>) -> Vec<f32> {
-        self.layers
+impl Neuron {
+    fn propagate(&self, inputs: &[f32]) -> f32 {
+        let output = inputs
             .iter()
-            .fold(inputs, |inputs, layer| layer.propagate(inputs))
+            .zip(&self.weights)
+            .map(|(input, weight)| input * weight)
+            .sum::<f32>();
+
+        (self.bias + output).max(0.0)
     }
 }
 
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+impl Network {
+    fn propagate(&self, mut inputs: Vec<f32>) -> Vec<f32> {
+        self.layers
+        .iter()
+        .fold(inputs, |inputs, layer| layer.propagate(inputs));
     }
 }
+
