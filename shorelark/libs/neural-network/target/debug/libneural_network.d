@@ -1,0 +1,1 @@
+C:\Users\evan1\OneDrive\Documents\GitHub\Evolution-Simulation\shorelark\libs\neural-network\target\debug\libneural_network.rlib: C:\Users\evan1\OneDrive\Documents\GitHub\Evolution-Simulation\shorelark\libs\neural-network\src\lib.rs
