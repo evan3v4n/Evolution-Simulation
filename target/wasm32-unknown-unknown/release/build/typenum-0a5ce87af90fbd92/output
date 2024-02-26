@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=C:\Users\evan1\OneDrive\Documents\GitHub\Evolution-Simulation\target\wasm32-unknown-unknown\release\build\typenum-0a5ce87af90fbd92\out\consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=C:\Users\evan1\OneDrive\Documents\GitHub\Evolution-Simulation\target\wasm32-unknown-unknown\release\build\typenum-0a5ce87af90fbd92\out\op.rs
