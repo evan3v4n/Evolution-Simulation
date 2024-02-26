@@ -72,6 +72,8 @@ terminal.println("- `reset` can modify *all* of the parameters:");
 terminal.println("");
 terminal.println("  * r i:integer_param=123 f:float_param=123");
 terminal.println("  * r a=200 f=200 f:food_size=0.002");
+terminal.println("");
+terminal.println("");
 terminal.scrollToTop();
 
 /* ---------- */
